@@ -50,6 +50,16 @@ Sweet所含内容
  * Sweet-RadioButtonforContextmenu—适用于Sweet主题下Contextmenu的RadioButton
 
 
+
+Solid特征
+=====
+ * 柔和亲切又不失Windows Store App的风格
+ * 无需专业的视觉设计即可开发出美观的应用
+ * 亮暗两版随意切换，适用于各种配色方案
+ * 专为开发者设计，即装即用，永久免费
+ * 无需专业美术基础即可让你的应用从此与众不同
+
+
 Solid所含内容
 =====
 重新定义了Sweet主题的实用控件
