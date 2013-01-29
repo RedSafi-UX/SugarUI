@@ -97,7 +97,7 @@ Solid所含内容
 安装方法
 =====
 
-将SweetStyles.xaml或SolidStyles.xaml复制到项目中Common文件夹下并添加进项目，在App.xaml中 <ResourceDictionary.MergedDictionaries>下方添加代码<ResourceDictionary Source="Common/SweetStyles.xaml"/>或<ResourceDictionary Source="Common/SolidStyles.xaml"/>
+将SweetStyles.xaml或SolidStyles.xaml复制到项目中Common文件夹下并添加进项目，在App.xaml中 "ResourceDictionary.MergedDictionaries"下方添加代码"ResourceDictionary Source="Common/SweetStyles.xaml"/"或"ResourceDictionary Source="Common/SolidStyles.xaml"/"
 
 版权信息
 =====
