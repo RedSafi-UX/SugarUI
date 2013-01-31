@@ -1,4 +1,4 @@
-SugarUI Windows 8 自定义控件
+SugarUI Controls for Windows 8 
 =====
 
 
