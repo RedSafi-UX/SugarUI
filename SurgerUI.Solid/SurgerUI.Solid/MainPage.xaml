@@ -1,0 +1,547 @@
+﻿<Page
+    x:Class="SurgerUI.Solid.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SurgerUI.Solid"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:SampleData="using:SurgerUI.Solid.SampleData.GridviewSampleDataSource"
+	d:DesignWidth="4300"
+    mc:Ignorable="d">
+
+	<Page.Resources>
+		<DataTemplate x:Key="DataTemplate1">
+			<Grid Background="{StaticResource LightGrayBackgroundThemeBrush}" Width="244" Height="242" >
+				<Grid VerticalAlignment="Bottom" Background="#FF272727">
+					<StackPanel Margin="10,5">
+						<TextBlock TextWrapping="Wrap" Text="{Binding Property1}" Margin="5" Foreground="White"/>
+						<TextBlock TextWrapping="Wrap" Text="{Binding Property2}" Margin="5" Foreground="White"/>
+					</StackPanel>
+				</Grid>
+			</Grid>
+		</DataTemplate>
+	</Page.Resources>
+    
+	
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+		<Grid.RowDefinitions>
+    		<RowDefinition Height="140"/>
+    		<RowDefinition Height="*"/>
+    	</Grid.RowDefinitions>
+		<Grid>
+    		<StackPanel Margin="120,50,0,0" Orientation="Horizontal">
+    			<Path Data="F1M393.9326,393.9219L393.9346,393.9729L338.7286,425.9729C336.3976,427.6559,333.5426,428.6589,330.4486,428.6589C322.6196,428.6589,316.2746,422.3149,316.2746,414.4859L316.2746,349.4859C316.2746,341.6579,322.6196,335.3129,330.4486,335.3129C333.5756,335.3129,336.4546,336.3379,338.7986,338.0529L392.0166,368.8689C397.0746,371.0329,400.6196,376.0529,400.6196,381.9019C400.6196,386.9789,397.9436,391.4179,393.9326,393.9219 M415.6046,379.6169C415.6096,379.4119,415.6196,379.2069,415.6196,378.9999C415.6196,368.5039,409.9116,359.3479,401.4346,354.4469L401.4116,354.4059L331.4776,314.0309L331.4636,314.0309C327.3266,311.6689,322.5406,310.3129,317.4356,310.3129C312.2596,310.3129,307.4126,311.7059,303.2376,314.1289L303.1706,314.1289L233.6536,354.2659L233.6326,354.3009C225.0146,359.1629,219.1916,368.3989,219.1916,378.9999C219.1916,379.2979,219.2046,379.5919,219.2136,379.8889L219.2136,458.7529C219.2046,459.0489,219.1916,459.3439,219.1916,459.6419C219.1916,470.5759,225.3866,480.0589,234.4546,484.7859L302.0706,523.8239C306.4986,526.6859,311.7706,528.3549,317.4356,528.3549C323.2966,528.3549,328.7426,526.5749,333.2616,523.5269L400.4266,484.7499C409.4566,480.0099,415.6196,470.5479,415.6196,459.6419C415.6196,459.4339,415.6096,459.2299,415.6046,459.0239z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="42" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Width="39" VerticalAlignment="Bottom" Margin="0,0,0,20"/>
+    			<TextBlock TextWrapping="Wrap" Text="SUGAR UI" Style="{StaticResource Font-A1}" VerticalAlignment="Bottom" Foreground="{StaticResource LightGreenForegroundThemeBrush}" Margin="10,0,0,2" FontFamily="Fonts/bariolregular.ttf#Bariol Regular"/>
+			</StackPanel>
+			<TextBlock TextWrapping="Wrap" Text="Controls for Windows 8" Style="{StaticResource Font-B2}" VerticalAlignment="Bottom" Margin="0,0,60,20" Foreground="White" Opacity="0.4" HorizontalAlignment="Right"/>
+    	</Grid>
+		<ScrollViewer Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalScrollMode="Disabled" ZoomMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Style="{StaticResource Solid-ScrollViewer}">
+    		<StackPanel Margin="120,150,0,0" Orientation="Horizontal">
+				<Grid HorizontalAlignment="Left" Margin="0,0,80,0">
+                    <StackPanel Margin="0" Orientation="Vertical">
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Solid" VerticalAlignment="Top" Style="{StaticResource Font-A1}" Foreground="{StaticResource LightGreenForegroundThemeBrush}" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="•   立体化你的Windows Store App" VerticalAlignment="Top" Style="{StaticResource Font-B1}" Foreground="White" Margin="0,17,0,0" Opacity="0.4" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="•   简洁明快，可应用于各种产品" VerticalAlignment="Top" Style="{StaticResource Font-B1}" Foreground="White" Margin="0,5,0,0" Opacity="0.4" />
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="•   亮暗两版随意切换，适用于各种配色方案" VerticalAlignment="Top" Style="{StaticResource Font-B1}" Foreground="White" Margin="0,5,0,0" Opacity="0.4" />
+                    </StackPanel>
+                </Grid>
+				<StackPanel Margin="0,0,80,0">
+					<Grid x:Name="CheckBox">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Check box" VerticalAlignment="Top" Margin="0" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<CheckBox Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource Solid-CheckBox}" Grid.Row="1" IsChecked="True" />
+					</Grid>
+					<Grid x:Name="RadioButton" Margin="0,96,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Radio button" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<StackPanel Orientation="Vertical" Grid.Row="1">
+							<RadioButton Content="male" VerticalAlignment="Stretch" Style="{StaticResource Solid-RadioButton}" Margin="0,0,0,20"/>
+							<RadioButton Content="female" VerticalAlignment="Stretch" Style="{StaticResource Solid-RadioButton}"/>
+						</StackPanel>
+					</Grid>
+					<Grid x:Name="PushButton" Margin="0,60,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Push button" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<StackPanel Orientation="Horizontal" Grid.Row="1">
+							<Button Content="Button" HorizontalAlignment="Left" Style="{StaticResource Solid-RecommandedButton}" VerticalAlignment="Bottom" BorderThickness="0" Width="91"/>
+							<Button Content="Button" HorizontalAlignment="Left" Style="{StaticResource Solid-Button}" VerticalAlignment="Bottom" BorderThickness="0" Margin="60,0,0,0" Width="91"/>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+				<StackPanel Margin="0,0,80,0">
+					<Grid x:Name="ToggleButton">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Toggle button" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<StackPanel Orientation="Vertical" Grid.Row="1">
+							<ToggleButton Content="Button" HorizontalAlignment="Left" VerticalAlignment="Stretch" Style="{StaticResource Solid-ToggleButton}" BorderThickness="0" Margin="0" IsChecked="True" Height="42" />
+						</StackPanel>
+					</Grid>
+					<Grid x:Name="Contextmenu" Margin="0,80,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Context menu" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<ContentControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Grid.Row="1">
+							<StackPanel>
+								<Grid Height="2" VerticalAlignment="Top" Background="{StaticResource DarkGreenBackgroundThemeBrush}"/>
+								<StackPanel Orientation="Vertical">
+									<StackPanel Orientation="Vertical">
+										<RadioButton HorizontalAlignment="Stretch" Content="Reply" VerticalAlignment="Top" Style="{StaticResource Sweet-RadioButtonforContextmenu}" GroupName="Reply" Height="40"/>
+										<RadioButton HorizontalAlignment="Stretch" Content="Reply all" VerticalAlignment="Top" Style="{StaticResource Sweet-RadioButtonforContextmenu}" GroupName="Reply" Height="40"/>
+										<RadioButton HorizontalAlignment="Stretch" Content="Forward" VerticalAlignment="Top" Style="{StaticResource Sweet-RadioButtonforContextmenu}" GroupName="Reply" Height="40" IsChecked="True"/>
+									</StackPanel>
+									<Grid Height="20" Background="{StaticResource WhiteBackgroundThemeBrush}">
+										<Border Height="1" VerticalAlignment="Center" Margin="20,0" Background="{StaticResource DarkGreenBackgroundThemeBrush}"/>
+									</Grid>
+									<StackPanel Orientation="Vertical">
+										<RadioButton HorizontalAlignment="Stretch" Content="Mark as unread" VerticalAlignment="Top" Style="{StaticResource Sweet-RadioButtonforContextmenu}" GroupName="Reply" Height="40"/>
+										<RadioButton HorizontalAlignment="Stretch" Content="Delete" VerticalAlignment="Top" Style="{StaticResource Sweet-RadioButtonforContextmenu}" GroupName="Reply" Height="40"/>
+									</StackPanel>
+								</StackPanel>
+								<Path Data="F1M361.9844,422.1104L367.9844,419.1104L227.9844,419.1104L233.9844,422.1104z" Fill="{StaticResource LightGrayBackgroundThemeBrush}" Height="3" Stretch="Fill" />
+							</StackPanel>
+						</ContentControl>
+					</Grid>
+				</StackPanel>
+				<StackPanel Margin="0,0,80,0">
+					<Grid x:Name="ToggleSwitch">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Toggle switch" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<StackPanel Orientation="Vertical" Grid.Row="1">
+							<ToggleSwitch HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource Solid-ToggleSwitch}" Header="ToggleSwitch"/>
+						</StackPanel>
+					</Grid>
+					<Grid x:Name="CommendButton" Margin="0,48,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Commend button" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource Solid-CommandButton}" Grid.Row="1" Margin="0" BorderThickness="0" Width="280">
+							<StackPanel Margin="0,-5">
+								<TextBlock TextWrapping="Wrap" Text="Yes, share and connect" FontWeight="SemiLight" FontSize="14.667"/>
+    							<TextBlock TextWrapping="Wrap" Text="Use this option for home or work" FontSize="14.667" FontWeight="SemiLight" Opacity="0.6" Margin="0,2,0,0"/>
+							</StackPanel>
+						</Button>
+						<Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="280" Style="{StaticResource Solid-RecommandedCommandButton}" Grid.Row="1" Margin="0,100,0,0" BorderThickness="0">
+							<StackPanel Margin="0,-5">
+								<TextBlock TextWrapping="Wrap" Text="Secondary command Link rest state" FontWeight="SemiLight" FontSize="14.667"/>
+    								<TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consecturelit adipisicing elit, sed do eiusmod." FontSize="14.667" FontWeight="SemiLight" Opacity="0.6" Margin="0,2,0,0"/>
+							</StackPanel>
+						</Button>
+					</Grid>
+				</StackPanel>
+				<Grid x:Name="AppDialog" Margin="0,0,80,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="App Dialog" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+					<ContentControl Grid.Row="1" Width="400">
+						<StackPanel>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+									<RowDefinition Height="3"/>
+								</Grid.RowDefinitions>
+								<Border BorderBrush="{StaticResource LightGreenBorderThemeBrush}" BorderThickness="0,1,0,0" Padding="22,20,22,80" Background="{StaticResource WhiteBackgroundThemeBrush}">
+									<StackPanel>
+										<TextBlock TextWrapping="Wrap" Text="Main instruction Ay" Foreground="{StaticResource GrayForegroundThemeBrush}" FontSize="27" FontFamily="Segoe UI Light"/>
+										<TextBlock TextWrapping="Wrap" Text="Ay Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc egestas fringilla lorem, quis commondonisi venenatis non." Foreground="{StaticResource GrayForegroundThemeBrush}" FontSize="14.667" FontFamily="Segoe UI Light" Margin="0,15,0,0"/>
+									</StackPanel>
+								</Border>
+								<Path Data="F1M551,422.1104L557,419.1104L39,419.1104L45,422.1104z" Fill="{StaticResource LightGrayBackgroundThemeBrush}" Stretch="Fill" UseLayoutRounding="False" Grid.Row="1" />
+								<StackPanel VerticalAlignment="Bottom" Grid.RowSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+									<Button Content="Button" HorizontalAlignment="Right" Style="{StaticResource Solid-RecommandedButton}" VerticalAlignment="Bottom" BorderThickness="0" Width="90" Margin="0,0,0,-3"/>
+									<Button Content="Button" HorizontalAlignment="Right" Style="{StaticResource Solid-Button}" VerticalAlignment="Bottom" BorderThickness="0" Width="90" Margin="0,0,0,-3"/>
+								</StackPanel>
+							</Grid>
+						</StackPanel>
+					</ContentControl>
+				</Grid>
+				<Grid x:Name="Flipper" Margin="0,0,80,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Flipper" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+					<StackPanel Orientation="Horizontal" Grid.Row="1">
+						<FlipView Width="229" Height="213" Style="{StaticResource Solid-FlipView}" VerticalAlignment="Top" Background="{StaticResource DarkGrayBackgroundThemeBrush}" >
+							<Grid Width="100" Height="100">
+    							<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="1" VerticalAlignment="Center" Foreground="White" FontSize="53.333"/>
+    						</Grid>
+    						<Grid Width="100" Height="100">
+    							<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="2" VerticalAlignment="Center" Foreground="White" FontSize="53.333" Margin="0"/>
+    						</Grid>
+    						<Grid Width="100" Height="100">
+    							<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="3" VerticalAlignment="Center" Foreground="White" FontSize="53.333" Margin="0"/>
+    						</Grid>
+						</FlipView>
+					</StackPanel>
+				</Grid>
+				<StackPanel Orientation="Vertical" Margin="0,0,80,0">
+					<Grid x:Name="TextBox">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Text box" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<PasswordBox VerticalAlignment="Top" BorderThickness="0" Style="{StaticResource Solid-PasswordBox}" IsPasswordRevealButtonEnabled="True" Grid.Row="1" Margin="0" Width="198" HorizontalAlignment="Left"/>
+						<TextBox TextWrapping="Wrap" Width="200" Style="{StaticResource Solid-TextBox}" BorderThickness="0" UseLayoutRounding="True" IsHoldingEnabled="False" IsRightTapEnabled="False" Grid.Row="1" VerticalAlignment="Top" Margin="0,80,0,0" HorizontalAlignment="Left"/>
+					</Grid>
+					<Grid x:Name="Editboxlabel" Margin="0,30,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Text box" VerticalAlignment="Top" Margin="0,1,0,0" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<StackPanel Orientation="Vertical" Grid.Row="1">
+							<ContentControl Width="287">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="auto"/>
+										<RowDefinition Height="auto"/>
+									</Grid.RowDefinitions>
+									<CheckBox Content="Check box label" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource Solid-CheckBox}"/>
+									<StackPanel Grid.RowSpan="2" VerticalAlignment="Top" Grid.Row="1" Margin="3,7,0,0">
+										<Path Data="F1M302.9844,425.1104L292.9844,425.1104L292.9844,415.1104z" Fill="{StaticResource ErrorInformationBackgroundThemeBrush}" Height="10" Stretch="Fill" Width="10" HorizontalAlignment="Left"/>
+										<Grid Background="{StaticResource ErrorInformationBackgroundThemeBrush}">
+											<TextBlock TextWrapping="Wrap" Text="This credit card number is not vaild. Please enter a valid credit card numberg." Margin="10,8" FontFamily="Segoe UI" FontSize="14.667"/>
+										</Grid>
+									</StackPanel>
+								</Grid>
+							</ContentControl>
+							<ContentControl Width="287" Margin="0,50,0,0">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="auto"/>
+										<RowDefinition Height="auto"/>
+									</Grid.RowDefinitions>
+									<TextBox TextWrapping="Wrap" Width="280" Style="{StaticResource Solid-TextBox}" BorderThickness="0" UseLayoutRounding="True" IsHoldingEnabled="False" IsRightTapEnabled="False"/>
+									<StackPanel Grid.RowSpan="2" VerticalAlignment="Top" Grid.Row="1" Margin="0,7,0,0">
+										<Path Data="F1M302.9844,425.1104L292.9844,425.1104L292.9844,415.1104z" Fill="{StaticResource ErrorInformationBackgroundThemeBrush}" Height="10" Stretch="Fill" Width="10" HorizontalAlignment="Left"/>
+										<Grid Background="{StaticResource ErrorInformationBackgroundThemeBrush}">
+											<TextBlock TextWrapping="Wrap" Text="Lorem ipsm dolor sit amet, consectetur elit. Aenean id velit nisl, eget temporg." Margin="10,8" FontFamily="Segoe UI" FontSize="14.667"/>
+										</Grid>
+									</StackPanel>
+								</Grid>
+							</ContentControl>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+				<StackPanel Margin="0,0,80,0">
+					<Grid x:Name="Progress">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="100"/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Progress" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<StackPanel Orientation="Vertical" Grid.Row="1">
+							<ProgressBar x:Name="DeterminateBar" HorizontalAlignment="Left" Height="8" VerticalAlignment="Top" Width="200" Style="{StaticResource Solid-ProgressBar}"/>
+							<ProgressBar x:Name="DeterminateBar_Copy" HorizontalAlignment="Left" Height="8" VerticalAlignment="Top" Width="200" Style="{StaticResource Solid-ProgressBar}" Value="50" Margin="0,10,0,0"/>
+						</StackPanel>
+					</Grid>
+					<Grid x:Name="Slider" Margin="0,40,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Slider" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+						<StackPanel Orientation="Vertical" Grid.Row="1">
+							<Slider Style="{StaticResource Solid-Slider}" Width="100" Height="119" Value="50" Margin="0,0,0,20" Orientation="Vertical" HorizontalAlignment="Left"/>
+							<Slider Style="{StaticResource Solid-Slider}" Width="100" Height="119" HorizontalAlignment="Left"/>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+				<Grid x:Name="ToggleMenu" Margin="0,0,80,0">
+    				<Grid.RowDefinitions>
+    					<RowDefinition Height="50"/>
+    					<RowDefinition Height="*"/>
+    				</Grid.RowDefinitions>
+    				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Toggle Menu" VerticalAlignment="Top" Margin="0,1,0,0" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+    				<ContentControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Grid.Row="1">
+    					<StackPanel>
+    						<Grid Height="2" VerticalAlignment="Top" Background="{StaticResource DarkGreenBackgroundThemeBrush}"/>
+    						<StackPanel Background="{StaticResource WhiteBackgroundThemeBrush}" Orientation="Vertical">
+    							<StackPanel Orientation="Vertical">
+    								<CheckBox Content="Reply" VerticalAlignment="Stretch" Style="{StaticResource Solid-ToggleMenu}"/>
+    								<CheckBox Content="Reply all" VerticalAlignment="Stretch" Style="{StaticResource Solid-ToggleMenu}" IsChecked="True"/>
+    								<CheckBox Content="Forward" VerticalAlignment="Stretch" Style="{StaticResource Solid-ToggleMenu}"/>
+    							</StackPanel>
+    							<Grid Height="20">
+    								<Border Height="1" VerticalAlignment="Center" Margin="28,0,20,0" Background="{StaticResource DarkGreenBackgroundThemeBrush}"/>
+    							</Grid>
+    							<StackPanel Orientation="Vertical">
+    								<CheckBox Content="Mark as unread" VerticalAlignment="Stretch" Style="{StaticResource Solid-ToggleMenu}" IsChecked="True"/>
+    								<CheckBox Content="Delete" VerticalAlignment="Stretch" Style="{StaticResource Solid-ToggleMenu}"/>
+    							</StackPanel>
+    						</StackPanel>
+    						<Path Data="F1M361.9844,422.1104L367.9844,419.1104L227.9844,419.1104L233.9844,422.1104z" Fill="{StaticResource LightGrayBackgroundThemeBrush}" Height="3" Stretch="Fill" />
+    					</StackPanel>
+    				</ContentControl>
+				</Grid>
+				<Grid x:Name="MediaPlayer" Margin="0,0,80,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Media Player" VerticalAlignment="Top" Margin="0,1,0,0" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+					<StackPanel Orientation="Vertical" Grid.Row="1">
+						<ContentControl Width="518" Margin="0,0,0,50">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="42"/>
+									<RowDefinition Height="3"/>
+								</Grid.RowDefinitions>
+								<Grid Background="{StaticResource WhiteBackgroundThemeBrush}" >
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="165"/>
+										<ColumnDefinition Width="75"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Button HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource Solid-MediaButton}" BorderThickness="0" Width="27" Height="27" Margin="9,0,0,0">
+										<Grid Margin="1,0,0,0">
+											<Path Data="F1M299.9844,420.2354L299.9844,430.2354L308.7344,425.3604z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="10" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Width="8.75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<TextBlock TextWrapping="Wrap" Text="14:58:20" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="1" HorizontalAlignment="Right"/>
+									<Slider HorizontalAlignment="Right" VerticalAlignment="Center" Width="132" Grid.Column="2" Style="{StaticResource Solid-MediaSlider}" Value="40"/>
+									<TextBlock TextWrapping="Wrap" Text="28:00:00" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="3" HorizontalAlignment="Right"/>
+									<TextBlock TextWrapping="Wrap" Text="Error loading from server" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" Grid.Column="1" Grid.ColumnSpan="3" Margin="13,0,0,0" Visibility="Collapsed"/>
+									<Button HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Solid-MediaButton}" BorderThickness="0" Width="27" Height="27" Margin="0" Grid.Column="4">
+										<Grid Margin="1,0,0,0">
+											<Path Data="M0,3.70801 L2,3.70801 L2,9.70801 L0,9.70801 z M10.709,3.08402 L12.9601,5.33589 L15.211,3.085 L16.625,4.499 L14.3739,6.75013 L16.625,9.00202 L15.211,10.416 L12.9597,8.16432 L10.709,10.415 L9.295,9.001 L11.5458,6.7502 L9.295,4.49903 z M8,0 L8,13.667 L3,9.70798 L3,3.70798 z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="13.667" Stretch="Fill" Width="16.625" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<Slider HorizontalAlignment="Center" VerticalAlignment="Center" Width="95" Grid.Column="5" Style="{StaticResource Solid-MediaSlider}" Value="40"/>
+									<ProgressBar Grid.ColumnSpan="6" Style="{StaticResource Solid-ProgressBar}" VerticalAlignment="Top" IsIndeterminate="True" Margin="0,1,0,0" Visibility="Collapsed"/>
+								</Grid>
+								<Path Data="F1M551,422.1104L557,419.1104L39,419.1104L45,422.1104z" Fill="{StaticResource LightGrayBackgroundThemeBrush}" Height="3" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Grid.ColumnSpan="6" Grid.Row="1"/>
+							</Grid>
+						</ContentControl>
+						<ContentControl Width="518" Margin="0,0,0,50">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="42"/>
+									<RowDefinition Height="3"/>
+								</Grid.RowDefinitions>
+								<Grid Background="{StaticResource WhiteBackgroundThemeBrush}" >
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="165"/>
+										<ColumnDefinition Width="75"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Button HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource Solid-MediaButton}" BorderThickness="0" Width="27" Height="27" Margin="9,0,0,0">
+										<Grid Margin="1,0,0,0">
+											<Path Data="F1M299.9844,420.2354L299.9844,430.2354L308.7344,425.3604z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="10" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Width="8.75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<TextBlock TextWrapping="Wrap" Text="14:58:20" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="1" HorizontalAlignment="Right" Visibility="Collapsed"/>
+									<Slider HorizontalAlignment="Right" VerticalAlignment="Center" Width="132" Grid.Column="2" Style="{StaticResource Solid-MediaSlider}" Value="40" Visibility="Collapsed"/>
+									<TextBlock TextWrapping="Wrap" Text="28:00:00" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="3" HorizontalAlignment="Right" Visibility="Collapsed"/>
+									<TextBlock TextWrapping="Wrap" Text="Error loading from server" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" Grid.Column="1" Grid.ColumnSpan="3" Margin="13,0,0,0" Visibility="Collapsed"/>
+									<Button HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Solid-MediaButton}" BorderThickness="0" Width="27" Height="27" Margin="0" Grid.Column="4">
+										<Grid Margin="1,0,0,0">
+											<Path Data="M0,3.70801 L2,3.70801 L2,9.70801 L0,9.70801 z M10.709,3.08402 L12.9601,5.33589 L15.211,3.085 L16.625,4.499 L14.3739,6.75013 L16.625,9.00202 L15.211,10.416 L12.9597,8.16432 L10.709,10.415 L9.295,9.001 L11.5458,6.7502 L9.295,4.49903 z M8,0 L8,13.667 L3,9.70798 L3,3.70798 z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="13.667" Stretch="Fill" Width="16.625" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<Slider HorizontalAlignment="Center" VerticalAlignment="Center" Width="95" Grid.Column="5" Style="{StaticResource Solid-MediaSlider}" Value="40"/>
+									<ProgressBar Grid.ColumnSpan="6" Style="{StaticResource Solid-ProgressBar}" VerticalAlignment="Top" IsIndeterminate="True" Margin="0,1,0,0"/>
+								</Grid>
+								<Path Data="F1M551,422.1104L557,419.1104L39,419.1104L45,422.1104z" Fill="{StaticResource LightGrayBackgroundThemeBrush}" Height="3" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Grid.ColumnSpan="6" Grid.Row="1"/>
+							</Grid>
+						</ContentControl>
+						<ContentControl Width="518" Margin="0,0,0,50">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="42"/>
+									<RowDefinition Height="3"/>
+								</Grid.RowDefinitions>
+								<Grid Background="{StaticResource WhiteBackgroundThemeBrush}" >
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="165"/>
+										<ColumnDefinition Width="75"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Button HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource Solid-MediaButton}" BorderThickness="0" Width="27" Height="27" Margin="9,0,0,0">
+										<Grid Margin="1,0,0,0">
+											<Path Data="F1M299.9844,420.2354L299.9844,430.2354L308.7344,425.3604z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="10" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Width="8.75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<TextBlock TextWrapping="Wrap" Text="14:58:20" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="1" HorizontalAlignment="Right" Visibility="Collapsed"/>
+									<Slider HorizontalAlignment="Right" VerticalAlignment="Center" Width="132" Grid.Column="2" Style="{StaticResource Solid-MediaSlider}" Value="40" Visibility="Collapsed"/>
+									<TextBlock TextWrapping="Wrap" Text="28:00:00" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="3" HorizontalAlignment="Right" Visibility="Collapsed"/>
+									<TextBlock TextWrapping="Wrap" Text="Error loading from server" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" Grid.Column="1" Grid.ColumnSpan="3" Margin="13,0,0,0"/>
+									<Button HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Solid-MediaButton}" BorderThickness="0" Width="27" Height="27" Margin="0" Grid.Column="4">
+										<Grid Margin="1,0,0,0">
+											<Path Data="M0,3.70801 L2,3.70801 L2,9.70801 L0,9.70801 z M10.709,3.08402 L12.9601,5.33589 L15.211,3.085 L16.625,4.499 L14.3739,6.75013 L16.625,9.00202 L15.211,10.416 L12.9597,8.16432 L10.709,10.415 L9.295,9.001 L11.5458,6.7502 L9.295,4.49903 z M8,0 L8,13.667 L3,9.70798 L3,3.70798 z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="13.667" Stretch="Fill" Width="16.625" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<Slider HorizontalAlignment="Center" VerticalAlignment="Center" Width="95" Grid.Column="5" Style="{StaticResource Solid-MediaSlider}" Value="40"/>
+									<ProgressBar Grid.ColumnSpan="6" Style="{StaticResource Solid-ProgressBar}" VerticalAlignment="Top" IsIndeterminate="True" Margin="0,1,0,0" Visibility="Collapsed"/>
+								</Grid>
+								<Path Data="F1M551,422.1104L557,419.1104L39,419.1104L45,422.1104z" Fill="{StaticResource LightGrayBackgroundThemeBrush}" Height="3" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Grid.ColumnSpan="6" Grid.Row="1"/>
+							</Grid>
+						</ContentControl>
+						<ContentControl Width="518" Margin="0,0,0,50">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="42"/>
+									<RowDefinition Height="3"/>
+								</Grid.RowDefinitions>
+								<Grid Background="{StaticResource WhiteBackgroundThemeBrush}" >
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="165"/>
+										<ColumnDefinition Width="75"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Button HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource Solid-MediaButton}" BorderThickness="0" Width="27" Height="27" Margin="9,0,0,0">
+										<Grid Margin="1,0,0,0">
+											<Path Data="F1M299.9844,420.2354L299.9844,430.2354L308.7344,425.3604z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="10" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Width="8.75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<TextBlock TextWrapping="Wrap" Text="14:58:20" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="1" HorizontalAlignment="Right"/>
+									<Slider HorizontalAlignment="Right" VerticalAlignment="Center" Width="132" Grid.Column="2" Style="{StaticResource Solid-MediaSlider}" Value="40"/>
+									<TextBlock TextWrapping="Wrap" Text="28:00:00" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="3" HorizontalAlignment="Right"/>
+									<TextBlock TextWrapping="Wrap" Text="Error loading from server" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" Grid.Column="1" Grid.ColumnSpan="3" Margin="13,0,0,0" Visibility="Collapsed"/>
+									<Button HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Solid-MediaButton}" BorderThickness="0" Width="27" Height="27" Margin="0" Grid.Column="4">
+										<Grid Margin="1,0,0,0">
+											<Path Data="M0,3.70801 L2,3.70801 L2,9.70801 L0,9.70801 z M10.709,3.08402 L12.9601,5.33589 L15.211,3.085 L16.625,4.499 L14.3739,6.75013 L16.625,9.00202 L15.211,10.416 L12.9597,8.16432 L10.709,10.415 L9.295,9.001 L11.5458,6.7502 L9.295,4.49903 z M8,0 L8,13.667 L3,9.70798 L3,3.70798 z" Fill="{StaticResource LightGreenBackgroundThemeBrush}" Height="13.667" Stretch="Fill" Width="16.625" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<Slider HorizontalAlignment="Center" VerticalAlignment="Center" Width="95" Grid.Column="5" Style="{StaticResource Solid-MediaSlider}" Value="40"/>
+									<ProgressBar Grid.ColumnSpan="6" Style="{StaticResource Solid-ProgressBar}" VerticalAlignment="Top" IsIndeterminate="True" Margin="0,1,0,0"/>
+								</Grid>
+								<Path Data="F1M551,422.1104L557,419.1104L39,419.1104L45,422.1104z" Fill="{StaticResource LightGrayBackgroundThemeBrush}" Height="3" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Grid.ColumnSpan="6" Grid.Row="1"/>
+							</Grid>
+						</ContentControl>
+						<ContentControl Width="518" Margin="0,0,0,50">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="42"/>
+									<RowDefinition Height="3"/>
+								</Grid.RowDefinitions>
+								<Grid Background="{StaticResource WhiteBackgroundThemeBrush}" >
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="165"/>
+										<ColumnDefinition Width="75"/>
+										<ColumnDefinition Width="60"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Button HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource Solid-MediaDisabledButton}" BorderThickness="0" Width="27" Height="27" Margin="9,0,0,0">
+										<Grid Margin="1,0,0,0">
+											<Path Data="F1M299.9844,420.2354L299.9844,430.2354L308.7344,425.3604z" Fill="{StaticResource MediaDisabledBackgroundThemeBrush}" Height="10" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Width="8.75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<TextBlock TextWrapping="Wrap" Text="14:58:20" Foreground="{StaticResource MediaDisabledBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="1" HorizontalAlignment="Right"/>
+									<Slider HorizontalAlignment="Right" VerticalAlignment="Center" Width="132" Grid.Column="2" Style="{StaticResource Solid-MediaPlaySliderDisabled}" Value="40" Foreground="{StaticResource MediaDisabledBackgroundThemeBrush}" Background="{StaticResource LightGrayBackgroundThemeBrush}"/>
+									<TextBlock TextWrapping="Wrap" Text="28:00:00" Foreground="{StaticResource MediaDisabledBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Light" Grid.Column="3" HorizontalAlignment="Right"/>
+									<TextBlock TextWrapping="Wrap" Text="Error loading from server" Foreground="{StaticResource DarkGrayBackgroundThemeBrush}" FontSize="15" VerticalAlignment="Center" FontFamily="Segoe UI" Grid.Column="1" Grid.ColumnSpan="3" Margin="13,0,0,0" Visibility="Collapsed"/>
+									<Button HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Solid-MediaDisabledButton}" BorderThickness="0" Width="27" Height="27" Margin="0" Grid.Column="4">
+										<Grid Margin="1,0,0,0">
+											<Path Data="M0,3.70801 L2,3.70801 L2,9.70801 L0,9.70801 z M10.709,3.08402 L12.9601,5.33589 L15.211,3.085 L16.625,4.499 L14.3739,6.75013 L16.625,9.00202 L15.211,10.416 L12.9597,8.16432 L10.709,10.415 L9.295,9.001 L11.5458,6.7502 L9.295,4.49903 z M8,0 L8,13.667 L3,9.70798 L3,3.70798 z" Fill="{StaticResource MediaDisabledBackgroundThemeBrush}" Height="13.667" Stretch="Fill" Width="16.625" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+										</Grid>
+									</Button>
+									<Slider HorizontalAlignment="Center" VerticalAlignment="Center" Width="95" Grid.Column="5" Style="{StaticResource Solid-MediaPlaySliderDisabled}" Value="40" Foreground="{StaticResource MediaDisabledBackgroundThemeBrush}" Background="{StaticResource LightGrayBackgroundThemeBrush}"/>
+									<ProgressBar Grid.ColumnSpan="6" Style="{StaticResource Solid-ProgressBar}" VerticalAlignment="Top" IsIndeterminate="True" Margin="0,1,0,0" Visibility="Collapsed"/>
+									<Rectangle Grid.ColumnSpan="6" Fill="{StaticResource WhiteBackgroundThemeBrush}" StrokeThickness="0" Opacity="0.5"/>
+								</Grid>
+								<Path Data="F1M551,422.1104L557,419.1104L39,419.1104L45,422.1104z" Fill="{StaticResource LightGrayBackgroundThemeBrush}" Height="3" Canvas.Left="0" Stretch="Fill" Canvas.Top="0" Grid.ColumnSpan="6" Grid.Row="1"/>
+							</Grid>
+						</ContentControl>
+					</StackPanel>
+				</Grid>
+				<Grid x:Name="Selected" Margin="0,0,80,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50"/>
+						<RowDefinition Height="*"/>
+    				</Grid.RowDefinitions>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Selected" VerticalAlignment="Top" Style="{StaticResource Font-B2}" Opacity="0.4"/>
+					<GridView x:Name="GridView" HorizontalAlignment="Left" VerticalAlignment="Top" CanDragItems="True" SelectionMode="Multiple" SelectedIndex="0"
+						ItemTemplate="{StaticResource DataTemplate1}" ItemsSource="{Binding Groups}" ItemContainerStyle="{StaticResource Solid-Container}" Grid.Row="1">
+						<GridView.Style>
+    						<Style TargetType="GridView">
+    							<Setter Property="Padding" Value="0,0,0,10"/>
+    							<Setter Property="IsTabStop" Value="False"/>
+    							<Setter Property="TabNavigation" Value="Once"/>
+    							<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+    							<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
+    							<Setter Property="ScrollViewer.HorizontalScrollMode" Value="Enabled"/>
+    							<Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="False"/>
+    							<Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
+    							<Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="False"/>
+    							<Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+    							<Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False"/>
+    							<Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True"/>
+    							<Setter Property="IsSwipeEnabled" Value="True"/>
+    							<Setter Property="ItemContainerTransitions">
+    								<Setter.Value>
+    									<TransitionCollection>
+    										<AddDeleteThemeTransition/>
+    										<ContentThemeTransition/>
+    										<ReorderThemeTransition/>
+    										<EntranceThemeTransition IsStaggeringEnabled="False"/>
+    									</TransitionCollection>
+    								</Setter.Value>
+    							</Setter>
+    							<Setter Property="ItemsPanel">
+    								<Setter.Value>
+    									<ItemsPanelTemplate>
+    										<WrapGrid Orientation="Vertical"/>
+    									</ItemsPanelTemplate>
+    								</Setter.Value>
+    							</Setter>
+    							<Setter Property="Template">
+    								<Setter.Value>
+    									<ControlTemplate TargetType="GridView">
+    										<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+    											<ScrollViewer x:Name="ScrollViewer" BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" IsHorizontalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsHorizontalScrollChainingEnabled}" IsVerticalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsVerticalScrollChainingEnabled}" IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}" TabNavigation="{TemplateBinding TabNavigation}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}">
+    												<ItemsPresenter HeaderTemplate="{TemplateBinding HeaderTemplate}" Header="{TemplateBinding Header}" HeaderTransitions="{TemplateBinding HeaderTransitions}" Padding="{TemplateBinding Padding}"/>
+    											</ScrollViewer>
+    										</Border>
+    									</ControlTemplate>
+    								</Setter.Value>
+    							</Setter>
+    						</Style>
+    					</GridView.Style>
+						<GridView.DataContext>
+							<SampleData:GridviewSampleDataSource/>
+						</GridView.DataContext>
+					</GridView>
+				</Grid>
+			</StackPanel>
+		</ScrollViewer>
+    </Grid>
+</Page>
